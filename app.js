@@ -8,12 +8,28 @@ const promptUser = () => {
         {
             type: "input",
             name: "name",
-            message: "Enter your Name:"
+            message: "Enter your Name:",
+            validate: nameInput => {
+                if (nameInput){
+                    return true
+                } else {
+                    console.log("Please enter your name!");
+                    return false;
+                }
+            }
         },
         {
             type:"input",
             name:"github",
-            message:"Enter your GitHub username:"
+            message:"Enter your GitHub username:",
+            validate: githubInput => {
+                if (githubInput){
+                    return true
+                } else {
+                    console.log("Please enter your GitHub username!");
+                    return false;
+                }
+            }
         },
         {
             type:"input",
@@ -40,7 +56,15 @@ const promptProject = portfolioData  => {
 {
     type:"input",
     name:"name",
-    message:"Enter the name of your project:"
+    message:"Enter the name of your project:",
+    validate: nameInput => {
+                if (nameInput){
+                    return true
+                } else {
+                    console.log("Please enter your project name!");
+                    return false;
+                }
+            }
 },
 {
     type:"input",
@@ -56,7 +80,15 @@ const promptProject = portfolioData  => {
 {
     type:"input",
     name:"link",
-    message:"Enter the GitHub link for the project. (Required):"
+    message:"Enter the GitHub link for the project. (Required):",
+    validate: linkInput => {
+                if (linkInput){
+                    return true
+                } else {
+                    console.log("Please enter your GitHub link!");
+                    return false;
+                }
+            }
 },
 {
     type:"confirm",
@@ -77,7 +109,7 @@ const promptProject = portfolioData  => {
   } else {
     return portfolioData;
   }
-});;
+});
 };
 promptUser()
 .then(promptProject)
